@@ -164,7 +164,7 @@ class DatePicker {
 //      itemTextStyle = DateTimePickerTheme.Default.itemTextStyle;
 
     if (textColor == null)
-      textColor = DateTimePickerTheme.Default.itemTextStyle.color;
+      textColor = DateTimePickerTheme.Default.itemTextStyle?.color;
 
     var datePickerDialog = AlertDialog(
       title: Text(

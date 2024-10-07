@@ -20,7 +20,7 @@ class DatePickerWidget extends StatefulWidget {
     this.initialDate,
     this.dateFormat = DATETIME_PICKER_DATE_FORMAT,
     this.locale = DATETIME_PICKER_LOCALE_DEFAULT,
-    this.pickerTheme = DateTimePickerTheme.Default,
+    this.pickerTheme,
     this.onCancel,
     this.onChange,
     this.onConfirm,
@@ -34,7 +34,7 @@ class DatePickerWidget extends StatefulWidget {
   final DateTime? firstDate, lastDate, initialDate;
   final String? dateFormat;
   final DateTimePickerLocale? locale;
-  final DateTimePickerTheme? pickerTheme;
+   DateTimePickerTheme? pickerTheme = DateTimePickerTheme.Default;
 
   final DateVoidCallback? onCancel;
   final DateValueCallback? onChange, onConfirm;
@@ -178,7 +178,7 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
               _changeDaySelection(value);
             }
           },
-          fontSize: widget.pickerTheme!.itemTextStyle.fontSize ??
+          fontSize: widget.pickerTheme!.itemTextStyle?.fontSize ??
               sizeByFormat(widget.dateFormat!));
       pickers.add(pickerColumn);
     });
@@ -194,7 +194,7 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
       ),
       child: Divider(
         color: widget.pickerTheme!.dividerColor ??
-            widget.pickerTheme!.itemTextStyle.color,
+            widget.pickerTheme!.itemTextStyle?.color,
         height:
             widget.pickerTheme!.dividerHeight ?? DATETIME_PICKER_DIVIDER_HEIGHT,
         thickness: widget.pickerTheme!.dividerThickness ??
